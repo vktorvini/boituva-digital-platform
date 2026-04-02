@@ -1,0 +1,265 @@
+# Silver TCE — Despesas (Boituva)
+
+## 🎯 Objetivo
+
+A camada Silver tem como objetivo transformar os dados da Bronze (brutos e textuais) em um formato:
+
+- tipado (datas e valores convertidos)
+- padronizado
+- normalizado
+- consistente entre anos
+- pronto para análise
+
+Ela é a base para:
+- dashboards
+- análises exploratórias
+- futura camada Gold (modelo analítico)
+
+---
+
+## 📊 Fonte de dados
+
+- Origem: API do Tribunal de Contas do Estado de São Paulo (TCESP)
+- Dataset: despesas
+- Município: Boituva
+
+---
+
+## 🧱 Camadas envolvidas
+
+### Bronze (entrada)
+- formato: CSV
+- granularidade: anual
+- dados próximos ao original
+- tipos como texto
+
+### Silver (saída)
+- formato: Parquet
+- granularidade: anual + consolidado
+- dados tratados e tipados
+
+---
+
+## 📁 Estrutura de diretórios
+data/silver/tce/despesas/
+├── 2014/
+│ ├── despesas_boituva_2014.parquet
+│ └── despesas_boituva_2014__meta.json
+├── ...
+└── consolidated/
+
+---
+
+## 📐 Schema da Silver
+
+### 🔹 Identificação institucional
+
+| Coluna | Tipo | Descrição |
+|------|-----|----------|
+| orgao | string | Nome original do órgão |
+| orgao_norm | string | Nome padronizado (upper, sem espaços duplicados) |
+
+---
+
+### 🔹 Temporal
+
+| Coluna | Tipo | Descrição |
+|------|-----|----------|
+| mes | string | Nome do mês |
+| mes_num | int | Número do mês |
+| ano | int | Ano |
+| ano_mes_ref | string | Referência YYYY-MM |
+
+---
+
+### 🔹 Evento
+
+| Coluna | Tipo | Descrição |
+|------|-----|----------|
+| evento | string | Evento original |
+| evento_norm | string | Evento padronizado |
+
+---
+
+### 🔹 Empenho
+
+| Coluna | Tipo | Descrição |
+|------|-----|----------|
+| nr_empenho | string | Número original |
+| nr_empenho_norm | string | Normalizado |
+
+---
+
+### 🔹 Fornecedor (normalização crítica)
+
+| Coluna | Tipo | Descrição |
+|------|-----|----------|
+| id_fornecedor_raw | string | Campo original |
+| id_fornecedor_tipo | string | CPF, CNPJ, ESPECIAL, UNKNOWN |
+| id_fornecedor_numero | string | Apenas dígitos |
+| id_fornecedor_valido | bool | Validação básica de tamanho |
+
+---
+
+### 🔹 Nome fornecedor
+
+| Coluna | Tipo | Descrição |
+|------|-----|----------|
+| nm_fornecedor | string | Nome original |
+| nm_fornecedor_norm | string | Nome padronizado |
+
+---
+
+### 🔹 Data
+
+| Coluna | Tipo | Descrição |
+|------|-----|----------|
+| dt_emissao_despesa_raw | string | Valor original |
+| dt_emissao_despesa | date | Data convertida |
+
+---
+
+### 🔹 Valor
+
+| Coluna | Tipo | Descrição |
+|------|-----|----------|
+| vl_despesa_raw | string | Valor original |
+| vl_despesa | float | Valor convertido |
+
+---
+
+### 🔹 Chave técnica
+
+| Coluna | Tipo | Descrição |
+|------|-----|----------|
+| chave_despesa | string | Hash SHA1 da linha |
+
+---
+
+## 🔧 Transformações aplicadas
+
+### ✔️ Texto
+- remoção de espaços duplicados
+- trim
+- normalização para uppercase
+- unescape de HTML
+
+---
+
+### ✔️ Data
+- formato origem: `dd/mm/yyyy`
+- convertido para `datetime`
+
+---
+
+### ✔️ Valor monetário
+- formato origem: `1.234,56`
+- transformação:
+  - remove `.`
+  - substitui `,` por `.`
+  - converte para float
+
+---
+
+### ✔️ Fornecedor
+Parsing do campo:
+CNPJ - PESSOA JURÍDICA - 15037371000115
+CPF - PESSOA FÍSICA - 12345678900
+IDENTIFICAÇÃO ESPECIAL - SEM CPF/CNPJ - 000000
+
+Transformado em:
+- tipo
+- número
+- validação
+
+---
+
+## 🧪 Validações
+
+A Silver executa:
+
+- parse de datas (erro vs sucesso)
+- parse de valores
+- duplicatas exatas
+- duplicatas por chave
+- nulos por coluna
+- consistência temporal
+
+---
+
+## 📄 Metadata
+
+Cada dataset gera metadata contendo:
+
+- registros_entrada
+- registros_saida
+- registros_descartados
+- parse_datas_ok / erro
+- parse_valores_ok / erro
+- duplicatas
+- nulos por coluna
+- schema_version
+- pipeline_version
+- status
+
+---
+
+## 📌 Status possíveis
+
+| Status | Significado |
+|------|------------|
+| OK | Dataset consistente |
+| PARCIAL | Falhas em parsing |
+| ERRO | Falha estrutural |
+| SEM_DADOS | Dataset vazio |
+
+---
+
+## 💾 Por que Parquet
+
+A Silver utiliza Parquet porque:
+
+- preserva tipos de dados
+- reduz uso de memória
+- leitura mais rápida
+- compatível com DuckDB e análise avançada
+- ideal para analytics
+
+---
+
+## 🚨 Limitações atuais
+
+- validação de CPF/CNPJ é básica (apenas tamanho)
+- não há enriquecimento externo (Receita Federal, CNAE, etc)
+- não há deduplicação lógica ainda
+- não há modelo dimensional (Gold)
+
+---
+
+## 🚀 Próximos passos
+
+- Silver de receitas
+- validação real de CPF/CNPJ
+- camada Gold (modelo estrela)
+- integração com DuckDB
+- dashboards (Looker Studio / BI)
+
+---
+
+## 🧠 Observação importante
+
+A Silver não deve conter regras de negócio específicas.
+
+Ela deve ser:
+- técnica
+- padronizada
+- confiável
+
+As regras de negócio pertencem à camada Gold.
+
+---
+
+## 📎 Versão
+
+- schema_version: 1.0.0
+- pipeline_version: conforme core.schema

@@ -1,0 +1,73 @@
+# =========================
+# Sistema / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Python / Pipeline
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.venv/
+venv/
+.env
+.env.*
+
+# =========================
+# Node / Dashboard
+# =========================
+node_modules/
+dist/
+build/
+.next/
+out/
+
+# =========================
+# Logs
+# =========================
+logs/*
+!logs/.gitkeep
+pipeline/logs/*
+!pipeline/logs/.gitkeep
+
+# =========================
+# Dados gerados localmente
+# =========================
+pipeline/data/raw/*
+pipeline/data/bronze/*
+pipeline/data/silver/*
+pipeline/data/gold/*
+
+!pipeline/data/raw/.gitkeep
+!pipeline/data/bronze/.gitkeep
+!pipeline/data/silver/.gitkeep
+!pipeline/data/gold/.gitkeep
+
+# =========================
+# Arquivos de ambiente frontend
+# =========================
+apps/dashboard/.env
+apps/dashboard/.env.local
+apps/dashboard/.env.development.local
+apps/dashboard/.env.test.local
+apps/dashboard/.env.production.local
+
+# =========================
+# Cobertura / testes
+# =========================
+.coverage
+.pytest_cache/
+htmlcov/
+coverage/
+
+# =========================
+# Arquivos temporários
+# =========================
+*.tmp
+*.bak

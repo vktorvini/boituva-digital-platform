@@ -1,0 +1,75 @@
+# Bronze TCE - Contrato e Operação
+
+## Objetivo
+A camada bronze do TCE tem como finalidade preservar e consolidar os dados coletados da API pública do TCESP em uma estrutura tabular estável, auditável e versionada.
+
+## Datasets implementados
+- despesas_tce
+- receitas_tce
+
+## Granularidade
+- Raw: mensal, por ano/mês
+- Bronze: anual
+- Bronze consolidated: todos os anos disponíveis
+
+## Estrutura de pastas
+
+### Raw
+`data/raw/tce/{dataset}/{ano}/{mes}.json`
+
+### Bronze anual
+`data/bronze/tce/{dataset}/{ano}/{dataset}_boituva_{ano}.csv`
+`data/bronze/tce/{dataset}/{ano}/{dataset}_boituva_{ano}__meta.json`
+
+### Consolidated
+`data/bronze/tce/{dataset}/consolidated/{dataset}_boituva_full.csv`
+`data/bronze/tce/{dataset}/consolidated/{dataset}_boituva_full__meta.json`
+
+## Estados do collector
+- `ok`: requisição bem-sucedida com dados
+- `empty`: requisição bem-sucedida sem dados
+- `error`: falha de rede, parsing ou resposta inválida
+
+## Regra de idempotência anual
+Um ano é pulado se:
+- o CSV anual existe
+- o metadata anual existe
+- `status == OK`
+- `arquivo_saida` confere
+- `schema_version` confere
+- `pipeline_version` confere
+
+## Schema version
+A bronze possui versionamento de contrato para suportar drift de schema e evolução controlada do pipeline.
+
+## Contrato de schema
+Ver `DOC_SCHEMA_CONTRACTS.md`.
+
+## Metadata
+Cada metadata anual registra:
+- dataset
+- camada
+- fonte
+- município
+- ano
+- data_execucao_utc
+- schema_version
+- pipeline_version
+- meses_esperados
+- meses_com_dados
+- meses_vazios
+- meses_com_erro
+- registros_totais
+- num_colunas
+- colunas
+- duplicatas_exatas
+- linhas_com_nulos
+- nulos_por_coluna
+- validacao_schema
+- arquivo_saida
+- status
+
+## Limitações conhecidas
+- A bronze ainda não converte tipos analíticos (datas e valores continuam próximos da origem).
+- A bronze não é a camada final para consumo analítico.
+- A silver será responsável por padronização tipada e regras adicionais de qualidade.
