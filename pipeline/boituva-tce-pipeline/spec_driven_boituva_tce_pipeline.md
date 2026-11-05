@@ -3,18 +3,20 @@
 ## 1. Visão do produto
 
 ### Nome
-Boituva Agent
+Boituva Plataforma Digital
 
 ### Propósito
-Construir uma plataforma de ingestão, padronização, transformação e análise de dados públicos de Boituva, com foco inicial em dados financeiros do TCESP, evoluindo para uma Urban Data Platform municipal.
+Construir uma plataforma de ingestão, padronização, transformação e análise de dados públicos de Boituva, com foco inicial em dados de secretarias com menor risco pelo indice de Risco por conta da LGPD, como dados disponiveis financeiros do TCESP em bases publicas, evoluindo para uma Urban Data Platform municipal.
 
 ### Objetivo principal
-Permitir coleta governável, rastreável e escalável de dados públicos para suportar:
+Permitir coleta governável, rastreável e escalável de dados públicos de toda a prefeitura para suportar:
 - análise técnica
 - indicadores de gestão pública
 - dashboards
 - futura camada de IA
 - futura expansão para múltiplas fontes municipais e estaduais
+- futuro aplicativo para os munícepes utilizarem com uma base unica podendo realizar qualquer solicitação ou serviço público na cidade.
+
 
 ---
 
@@ -24,6 +26,12 @@ Permitir coleta governável, rastreável e escalável de dados públicos para su
 #### TCESP API
 - despesas
 - receitas
+#### SIDRA API
+#### IBGE API
+#### PNCP API
+#### SICONFI API
+#### TSE API
+
 
 ### Camadas implementadas
 - Bronze
@@ -64,7 +72,7 @@ Permitir coleta governável, rastreável e escalável de dados públicos para su
 ## 3. Problema de negócio que o sistema resolve
 
 ### Problema
-Os dados públicos estão dispersos, heterogêneos e pouco prontos para consumo analítico.
+Os dados públicos estão dispersos, heterogêneos e pouco prontos para consumo analítico. Tornando as decisões sem exatidão e com falta de "time" correto para executar. Ou os dados que temos estruturados estão sob jurisdição de empresa terceira.
 
 ### Dor principal
 - baixa governança dos dados
@@ -75,14 +83,14 @@ Os dados públicos estão dispersos, heterogêneos e pouco prontos para consumo 
 - ausência de base pronta para análise e decisão
 
 ### Solução proposta
-Uma arquitetura em camadas, versionada, idempotente e documentada, que transforma dados públicos brutos em ativos analíticos confiáveis.
+Uma arquitetura em camadas, versionada, idempotente, com DRY e documentada, que transforma dados públicos brutos em ativos analíticos confiáveis.
 
 ---
 
 ## 4. Princípios do sistema
 
 ### 4.1 Governança primeiro
-Nenhuma camada deve depender de interpretação manual implícita.
+Nenhuma camada deve depender de interpretação manual implícita. Para que a câmada semantica contenha qualidade.
 
 ### 4.2 Rastreabilidade
 Todo artefato precisa indicar:
@@ -91,15 +99,16 @@ Todo artefato precisa indicar:
 - período
 - status
 - estrutura esperada
+- tempo que foi carregada e por quem
 
 ### 4.3 Idempotência
-A mesma execução não deve recriar dados já validados sem necessidade.
+A mesma execução não deve recriar dados já validados sem necessidade. Ou seja criar verificações onde [se os dados existem , e está com status OK, e comparando os arquivos não há mudança de melhoria ou adicione algum conteudo corrigido, não precisa reprossá-lo.]
 
 ### 4.4 Separação de responsabilidades
-- collector coleta
-- bronze aterrissa e harmoniza
-- silver tipa e padroniza
-- gold agrega e traduz em métrica
+- collector coleta para RAW (dados brutos igual a origem da fonte)
+- bronze aterrissa e harmoniza (cria uma copia para podermos trabalhar no projeto)
+- silver tipa limpa e  padroniza ( aqui efetuamos a limpeza sempre cuidando com a LGPD e RIsco que podemos ter se nao criarmos camadas de forma correta, e pensando em cada secretaria da prefeitura utilizando o DRY com arquivos que podemos reaproveitar pensando sempre em pequenas FUNÇÕES para mantermos o código de facil manutençao e reutilizar em varios pipelines)
+- gold agrega e traduz em métrica (pensando sempre na camada sêmantica, LGPD, IEGM,  )
 
 ### 4.5 Evolução controlada
 Toda mudança relevante deve carregar versionamento de schema e pipeline.
@@ -109,16 +118,21 @@ Toda mudança relevante deve carregar versionamento de schema e pipeline.
 ## 5. Arquitetura alvo
 
 ```text
-Fonte pública -> Collector -> Raw -> Bronze -> Silver -> Gold -> Indicadores / Dashboard / IA
+Fonte -> Collector -> Raw -> Bronze -> Silver -> Gold -> Camada Semantica -> Indicadores / Dashboard / IA / Análise Preditiva / Apps
 ```
 
 ### Fontes no roadmap
+- Planilhas
+- Sistemas Legados
+- Banco de dados Legados
 - TCESP API
 - conjuntos CSV do TCESP
 - portal da transparência municipal
 - IBGE
 - TSE
 - PNCP
+- Sidra
+- GOV
 - demais bases públicas relevantes
 
 ---
@@ -126,23 +140,63 @@ Fonte pública -> Collector -> Raw -> Bronze -> Silver -> Gold -> Indicadores / 
 ## 6. Estrutura de projeto
 
 ```text
-boituva_agent/
+BOITUVA-DIGITAL-PLATAFORM/
 │
-├── data/
-│   ├── raw/
-│   ├── bronze/
-│   ├── silver/
-│   └── gold/
-│
-├── logs/
-│
-├── src/
-│   ├── collectors/
-│   ├── core/
-│   ├── pipelines/
-│   └── main.py
-│
+├──.agents/
+├──.specify/
+├──apps/
+    ├──dashboard/
+        ├──dist/
+        ├──docs/
+            ├──skills/
+            ├──specs/
+        ├──public/
+        ├──src/
+            ├──components/
+                ├──dashboard/
+                ├──layout/
+                ├──ui/
+            ├──contexts/
+            ├──data/
+            ├──hooks/
+            ├──lib/
+            ├──pages/
+            ├──services/
+            ├──test/
+├──docs/
+    ├──arquitetura/
+    ├──negocio/
+    ├──projeto/
+    ├──pipeline/
+    ├──dashboard/
+├──pipeline/
+    ├──boituva-pipeline/
+        ├──data/
+            ├──raw/
+                ├──ibge/
+                ├──pncp/
+                ├──siconfi/
+                ├──tce/
+                ├──tcesp/
+                ├──tse/
+                ├──planilhas/
+                ├──bd_legado/
+            ├──bronze/ 
+            ├──silver/
+            ├──gold/
+        ├──docs/
+            ├──fontes/
+        ├──logs/
+        ├──scripts/
+        ├──src/
+            ├──collectors/
+            ├──core/
+            ├──pipelines/
+                └──main.py
 ├── requirements.txt
+├──.gitingore
+├──package-lock.json
+├──package.json
 ├── README.md
 └── docs/*.md
 ```
@@ -155,13 +209,13 @@ boituva_agent/
 Dados brutos preservados como vieram da origem.
 
 ### data/bronze
-Dados harmonizados minimamente, próximos da origem, estáveis entre anos.
+Dados harmonizados minimamente, próximos da origem, estáveis entre anos. Rastreaveis e auditaveis.
 
 ### data/silver
-Dados tipados, padronizados, limpos e prontos para análise.
+Dados tipados, padronizados, limpos e prontos para análise. Pensando na LGPD sempre!
 
 ### data/gold
-Dados agregados e transformados em visão de negócio/gestão.
+Dados agregados e transformados em visão de negócio/gestão de cada secretaria.
 
 ### src/collectors
 Implementação de coleta por fonte.
@@ -169,6 +223,8 @@ Implementação de coleta por fonte.
 ### src/core
 Utilitários compartilhados:
 - storage
+- database
+- http_client
 - metadata
 - validations
 - schema
@@ -177,14 +233,14 @@ Utilitários compartilhados:
 Fluxos específicos de cada dataset e camada.
 
 ### logs
-Reservado para execução operacional futura.
+Reservado para execução operacional futura. com controle de Logs
 
 ---
 
 ## 8. Contrato da camada Bronze
 
 ### Objetivo
-Garantir aterrissagem estável, harmonização estrutural e preservação da origem.
+Garantir aterrissagem estável, harmonização estrutural e preservação da origem. Alem de garantir rastreabilidade e auditavel. Rastrear e verificar 
 
 ### Requisitos obrigatórios
 - granularidade anual
@@ -216,15 +272,19 @@ Um ano é pulado se:
 ## 9. Contrato da camada Silver
 
 ### Objetivo
-Transformar dados da Bronze em tabelas confiáveis, tipadas e consistentes.
+Transformar dados da Bronze em tabelas confiáveis, tipadas e consistentes com LGPD aplicada, IEGM, cadamada semântica.
 
 ### Regras gerais
 - preservar campo bruto quando houver transformação crítica
 - converter datas
+- Data Masking
 - converter valores monetários
 - normalizar textos
 - criar colunas técnicas derivadas
 - gerar chave técnica quando necessário
+- preservar dados sensíveis pela LGPD utilizando anonimização se necessario, mascaramento de dados
+- Pseudonimização
+Sanitização de Dados
 - salvar em parquet
 - gerar metadata
 

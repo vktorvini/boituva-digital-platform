@@ -1,0 +1,30 @@
+{
+  "status": "ok",
+  "summary": {
+    "datasets": 4,
+    "packages": 15,
+    "resources": 672
+  },
+  "rows": [
+    {
+      "dataset_key": "candidatos",
+      "packages": 2,
+      "resources": 66
+    },
+    {
+      "dataset_key": "eleitorado",
+      "packages": 3,
+      "resources": 66
+    },
+    {
+      "dataset_key": "prestacao_contas",
+      "packages": 5,
+      "resources": 15
+    },
+    {
+      "dataset_key": "votacao",
+      "packages": 5,
+      "resources": 525
+    }
+  ]
+}

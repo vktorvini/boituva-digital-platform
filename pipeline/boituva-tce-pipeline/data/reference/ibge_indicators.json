@@ -1,0 +1,92 @@
+[
+  {
+    "indicador_id": "area-territorial",
+    "ano_referencia": 2022,
+    "indicador_nome": "Area territorial",
+    "valor": 248.95,
+    "unidade": "km2",
+    "fonte": "IBGE - Area territorial brasileira 2022",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  },
+  {
+    "indicador_id": "populacao-censo",
+    "ano_referencia": 2022,
+    "indicador_nome": "Populacao no ultimo censo",
+    "valor": 61081,
+    "unidade": "pessoas",
+    "fonte": "IBGE - Censo Demografico 2022",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  },
+  {
+    "indicador_id": "densidade-demografica",
+    "ano_referencia": 2022,
+    "indicador_nome": "Densidade demografica",
+    "valor": 245.35,
+    "unidade": "hab_km2",
+    "fonte": "IBGE - Censo Demografico 2022",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  },
+  {
+    "indicador_id": "populacao-estimada",
+    "ano_referencia": 2025,
+    "indicador_nome": "Populacao estimada",
+    "valor": 63850,
+    "unidade": "pessoas",
+    "fonte": "IBGE - Estimativas populacionais",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  },
+  {
+    "indicador_id": "escolarizacao",
+    "ano_referencia": 2022,
+    "indicador_nome": "Escolarizacao de 6 a 14 anos",
+    "valor": 98.66,
+    "unidade": "percentual",
+    "fonte": "IBGE - Cidades e Estados",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  },
+  {
+    "indicador_id": "idhm",
+    "ano_referencia": 2010,
+    "indicador_nome": "IDHM",
+    "valor": 0.780,
+    "unidade": "indice",
+    "fonte": "PNUD disponibilizado no painel do IBGE",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  },
+  {
+    "indicador_id": "mortalidade-infantil",
+    "ano_referencia": 2023,
+    "indicador_nome": "Mortalidade infantil",
+    "valor": 14.81,
+    "unidade": "obitos_por_mil",
+    "fonte": "DATASUS disponibilizado no painel do IBGE",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  },
+  {
+    "indicador_id": "receitas-brutas",
+    "ano_referencia": 2024,
+    "indicador_nome": "Receitas brutas realizadas",
+    "valor": 449100000,
+    "unidade": "brl",
+    "fonte": "Siconfi disponibilizado no painel do IBGE",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  },
+  {
+    "indicador_id": "despesas-brutas",
+    "ano_referencia": 2024,
+    "indicador_nome": "Despesas brutas empenhadas",
+    "valor": 446800000,
+    "unidade": "brl",
+    "fonte": "Siconfi disponibilizado no painel do IBGE",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  },
+  {
+    "indicador_id": "pib-per-capita",
+    "ano_referencia": 2023,
+    "indicador_nome": "PIB per capita",
+    "valor": 73249.13,
+    "unidade": "brl",
+    "fonte": "IBGE - PIB dos Municipios",
+    "fonte_url": "https://www.ibge.gov.br/cidades-e-estados/sp/boituva.html"
+  }
+]

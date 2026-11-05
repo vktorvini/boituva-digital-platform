@@ -1,10 +1,11 @@
-# =========================
+﻿# =========================
 # Sistema / Editor
 # =========================
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+.agents/
 
 # =========================
 # Python / Pipeline
@@ -18,6 +19,10 @@ __pycache__/
 venv/
 .env
 .env.*
+!.env.example
+!**/.env.example
+*.secret
+*.credentials
 
 # =========================
 # Node / Dashboard
@@ -27,6 +32,7 @@ dist/
 build/
 .next/
 out/
+apps/dashboard/vite-dev*.log
 
 # =========================
 # Logs
@@ -57,6 +63,14 @@ apps/dashboard/.env.local
 apps/dashboard/.env.development.local
 apps/dashboard/.env.test.local
 apps/dashboard/.env.production.local
+apps/dashboard/.env.preview
+apps/dashboard/.env.staging
+
+# =========================
+# Supabase / credenciais locais
+# =========================
+supabase/.temp/
+supabase/config.local.toml
 
 # =========================
 # Cobertura / testes
@@ -67,7 +81,7 @@ htmlcov/
 coverage/
 
 # =========================
-# Arquivos temporários
+# Arquivos temporarios
 # =========================
 *.tmp
 *.bak

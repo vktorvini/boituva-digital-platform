@@ -1,0 +1,37 @@
+{
+  "dataset": "gold_despesa_mensal_evento",
+  "camada": "gold",
+  "fonte": "tce_sp",
+  "municipio": "boituva",
+  "pipeline_version": "1.1.0",
+  "schema_version": "2.0.0",
+  "data_execucao_utc": "2026-05-12T17:33:28+00:00",
+  "arquivo_saida": "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\gold\\tce\\financeiro\\gold_despesa_mensal_evento.parquet",
+  "checksum_sha256": "afd5fbae1872293274b82896c8be786385d638667aaa8043e3fd5766b31161cd",
+  "arquivos_entrada": [
+    "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\silver\\tce\\despesas\\consolidated\\despesas_boituva_full.parquet"
+  ],
+  "registros_totais": 48,
+  "num_colunas": 5,
+  "colunas": [
+    "ano",
+    "mes_num",
+    "ano_mes_ref",
+    "categoria_evento",
+    "vl_despesa_total"
+  ],
+  "duplicatas_exatas": 0,
+  "linhas_com_nulos": 0,
+  "nulos_por_coluna": {},
+  "status": "OK",
+  "observacoes": {
+    "criterio_classificacao": {
+      "despesa_empenhada": "evento_norm contém EMPENH",
+      "despesa_liquidada": "evento_norm contém LIQUID",
+      "despesa_paga": "evento_norm contém PAGO",
+      "despesa_anulada": "evento_norm contém ANULA",
+      "despesa_reforcada": "evento_norm contém REFOR",
+      "despesa_outros_eventos": "demais eventos"
+    }
+  }
+}

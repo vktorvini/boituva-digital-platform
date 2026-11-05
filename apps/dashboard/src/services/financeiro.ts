@@ -1,7 +1,16 @@
-import { supabase } from "@/lib/supabase";
+﻿import { supabase } from "@/lib/supabase";
+
+function getClient() {
+  if (!supabase) {
+    throw new Error("Supabase nao configurado. Defina VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY.");
+  }
+
+  return supabase;
+}
 
 export async function fetchFinanceiroAnual() {
-  const { data, error } = await supabase
+  const client = getClient();
+  const { data, error } = await client
     .from("gold_financeiro_anual")
     .select("*")
     .order("ano", { ascending: true });
@@ -11,7 +20,8 @@ export async function fetchFinanceiroAnual() {
 }
 
 export async function fetchFinanceiroMensal() {
-  const { data, error } = await supabase
+  const client = getClient();
+  const { data, error } = await client
     .from("gold_financeiro_mensal")
     .select("*")
     .order("ano", { ascending: true })
@@ -22,7 +32,8 @@ export async function fetchFinanceiroMensal() {
 }
 
 export async function fetchDespesaEvento() {
-  const { data, error } = await supabase
+  const client = getClient();
+  const { data, error } = await client
     .from("gold_despesa_mensal_evento")
     .select("*")
     .order("ano", { ascending: true })
@@ -33,7 +44,8 @@ export async function fetchDespesaEvento() {
 }
 
 export async function fetchReceitaFonte() {
-  const { data, error } = await supabase
+  const client = getClient();
+  const { data, error } = await client
     .from("gold_receita_mensal_fonte")
     .select("*")
     .order("ano", { ascending: true })

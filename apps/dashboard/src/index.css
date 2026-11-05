@@ -16,33 +16,33 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 40% 13%;
 
-    /* Deep navy - institutional authority */
-    --primary: 220 55% 18%;
-    --primary-foreground: 210 40% 98%;
+    /* Official Boituva Teal (#03aba0) */
+    --primary: 176 96% 34%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 25% 93%;
+    --secondary: 176 30% 93%;
     --secondary-foreground: 220 40% 13%;
 
     --muted: 215 20% 94%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 215 25% 90%;
-    --accent-foreground: 220 40% 13%;
+    --accent: 176 96% 34%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 215 20% 88%;
     --input: 215 20% 88%;
-    --ring: 220 55% 18%;
+    --ring: 176 96% 34%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Governance tokens */
-    --gov-navy: 220 55% 18%;
-    --gov-navy-light: 220 45% 25%;
-    --gov-blue: 210 70% 45%;
-    --gov-blue-light: 210 60% 55%;
+    /* Governance tokens - Refined for Boituva */
+    --gov-navy: 176 96% 25%;
+    --gov-navy-light: 176 96% 34%;
+    --gov-blue: 176 96% 34%;
+    --gov-blue-light: 176 80% 45%;
     --gov-amber: 38 92% 50%;
     --gov-amber-light: 38 90% 60%;
     --gov-green: 152 60% 36%;
@@ -53,16 +53,16 @@
     --gov-surface: 220 25% 97%;
     --gov-surface-elevated: 0 0% 100%;
 
-    /* Sidebar */
-    --sidebar-background: 220 55% 14%;
-    --sidebar-foreground: 210 30% 80%;
-    --sidebar-primary: 210 70% 55%;
+    /* Sidebar - Executive Professional */
+    --sidebar-background: 176 96% 15%;
+    --sidebar-foreground: 210 30% 90%;
+    --sidebar-primary: 176 96% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 50% 20%;
-    --sidebar-accent-foreground: 210 30% 90%;
-    --sidebar-border: 220 45% 20%;
-    --sidebar-ring: 210 70% 55%;
-    --sidebar-muted-foreground: 215 20% 55%;
+    --sidebar-accent: 176 96% 22%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 176 96% 20%;
+    --sidebar-ring: 176 96% 40%;
+    --sidebar-muted-foreground: 215 20% 60%;
   }
 }
 
@@ -74,6 +74,10 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--primary) / 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, hsl(var(--primary) / 0.04), transparent);
+    background-attachment: fixed;
   }
   h1, h2, h3 {
     font-family: 'Source Serif 4', Georgia, serif;
@@ -91,5 +95,18 @@
   }
   .gov-shadow-elevated {
     box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 6px -2px rgb(0 0 0 / 0.04);
+  }
+  .page-enter {
+    animation: page-enter 0.35s ease-out both;
+  }
+  @keyframes page-enter {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

@@ -1,0 +1,1022 @@
+{
+  "status": "ok",
+  "summary": {
+    "datasets": 2,
+    "registros": 100,
+    "valor_total": 213820087.0
+  },
+  "rows": [
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "registros": 50,
+      "valor_total": 121924442.02
+    },
+    {
+      "dataset_key": "contratos",
+      "registros": 50,
+      "valor_total": 91895644.98
+    }
+  ],
+  "detail": [
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00394460005887-2-007096/2024",
+      "orgao_entidade": "MINISTERIO DA ECONOMIA",
+      "municipio_nome": "Curitiba",
+      "uf_sigla": "PR",
+      "valor_total": 7000.0,
+      "data_inclusao": null,
+      "valor_total_num": 7000.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00394460005887-2-007097/2024",
+      "orgao_entidade": "MINISTERIO DA ECONOMIA",
+      "municipio_nome": "Belém",
+      "uf_sigla": "PA",
+      "valor_total": 1300.0,
+      "data_inclusao": null,
+      "valor_total_num": 1300.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00394460005887-2-007098/2024",
+      "orgao_entidade": "MINISTERIO DA ECONOMIA",
+      "municipio_nome": "Curitiba",
+      "uf_sigla": "PR",
+      "valor_total": 10100.0,
+      "data_inclusao": null,
+      "valor_total_num": 10100.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00394460005887-2-007099/2024",
+      "orgao_entidade": "MINISTERIO DA ECONOMIA",
+      "municipio_nome": "Belo Horizonte",
+      "uf_sigla": "MG",
+      "valor_total": 55550.0,
+      "data_inclusao": null,
+      "valor_total_num": 55550.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "06073250000138-2-000072/2024",
+      "orgao_entidade": "SECRETARIA MUNICIPAL DE EDUCACAO E CULTURA",
+      "municipio_nome": "Ilhota",
+      "uf_sigla": "SC",
+      "valor_total": 63250.0,
+      "data_inclusao": null,
+      "valor_total_num": 63250.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "06073250000138-2-000073/2024",
+      "orgao_entidade": "SECRETARIA MUNICIPAL DE EDUCACAO E CULTURA",
+      "municipio_nome": "Ilhota",
+      "uf_sigla": "SC",
+      "valor_total": 1999.0,
+      "data_inclusao": null,
+      "valor_total_num": 1999.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "08857731000160-2-000764/2024",
+      "orgao_entidade": "FUNDO MUNICIPAL DE SAUDE DE GOV CELSO RAMOS",
+      "municipio_nome": "Governador Celso Ramos",
+      "uf_sigla": "SC",
+      "valor_total": 2610.0,
+      "data_inclusao": null,
+      "valor_total_num": 2610.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01605479000152-2-000861/2024",
+      "orgao_entidade": "MUNICIPIO DE BALNEARIO ARROIO DO SILVA",
+      "municipio_nome": "Balneário Arroio do Silva",
+      "uf_sigla": "SC",
+      "valor_total": 10889.9,
+      "data_inclusao": null,
+      "valor_total_num": 10889.9
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01605479000152-2-000862/2024",
+      "orgao_entidade": "MUNICIPIO DE BALNEARIO ARROIO DO SILVA",
+      "municipio_nome": "Balneário Arroio do Silva",
+      "uf_sigla": "SC",
+      "valor_total": 8704.17,
+      "data_inclusao": null,
+      "valor_total_num": 8704.17
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01605479000152-2-000863/2024",
+      "orgao_entidade": "MUNICIPIO DE BALNEARIO ARROIO DO SILVA",
+      "municipio_nome": "Balneário Arroio do Silva",
+      "uf_sigla": "SC",
+      "valor_total": 2413.09,
+      "data_inclusao": null,
+      "valor_total_num": 2413.09
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "82911249000113-2-000319/2024",
+      "orgao_entidade": "MUNICIPIO DE ARARANGUA",
+      "municipio_nome": "Araranguá",
+      "uf_sigla": "SC",
+      "valor_total": 28840.6,
+      "data_inclusao": null,
+      "valor_total_num": 28840.6
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "83028639000102-2-000410/2024",
+      "orgao_entidade": "MUNICIPIO DE PALMA SOLA",
+      "municipio_nome": "Palma Sola",
+      "uf_sigla": "SC",
+      "valor_total": 2954.17,
+      "data_inclusao": null,
+      "valor_total_num": 2954.17
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "83102244000102-2-000700/2024",
+      "orgao_entidade": "MUNICIPIO DE GASPAR",
+      "municipio_nome": "Gaspar",
+      "uf_sigla": "SC",
+      "valor_total": 18645.0,
+      "data_inclusao": null,
+      "valor_total_num": 18645.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "83102244000102-2-000701/2024",
+      "orgao_entidade": "MUNICIPIO DE GASPAR",
+      "municipio_nome": "Gaspar",
+      "uf_sigla": "SC",
+      "valor_total": 11142.0,
+      "data_inclusao": null,
+      "valor_total_num": 11142.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "82821190000172-2-000093/2024",
+      "orgao_entidade": "MUNICIPIO DE MARAVILHA",
+      "municipio_nome": "Maravilha",
+      "uf_sigla": "SC",
+      "valor_total": 402.8,
+      "data_inclusao": null,
+      "valor_total_num": 402.8
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "87612818000143-2-000082/2024",
+      "orgao_entidade": "MUNICIPIO DE SANTO CRISTO",
+      "municipio_nome": "Santo Cristo",
+      "uf_sigla": "RS",
+      "valor_total": 82500.0,
+      "data_inclusao": null,
+      "valor_total_num": 82500.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01613464000136-2-000052/2024",
+      "orgao_entidade": "MUNICIPIO DE ESPERANCA DO SUL",
+      "municipio_nome": "Esperança do Sul",
+      "uf_sigla": "RS",
+      "valor_total": 216899.97,
+      "data_inclusao": null,
+      "valor_total_num": 216899.97
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "87613048000153-2-000294/2024",
+      "orgao_entidade": "MUNICIPIO DE GIRUA",
+      "municipio_nome": "Giruá",
+      "uf_sigla": "RS",
+      "valor_total": 12500.0,
+      "data_inclusao": null,
+      "valor_total_num": 12500.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "87612784000197-2-000003/2024",
+      "orgao_entidade": "MUNICIPIO DE ALECRIM",
+      "municipio_nome": "Alecrim",
+      "uf_sigla": "RS",
+      "valor_total": 34200.0,
+      "data_inclusao": null,
+      "valor_total_num": 34200.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "05461142000170-2-000008/2025",
+      "orgao_entidade": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "municipio_nome": "Belo Horizonte",
+      "uf_sigla": "MG",
+      "valor_total": 53095104.0,
+      "data_inclusao": null,
+      "valor_total_num": 53095104.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "50448935000103-2-000286/2024",
+      "orgao_entidade": "SAO JOSE DOS CAMPOS CAMARA MUNICIPAL",
+      "municipio_nome": "São José dos Campos",
+      "uf_sigla": "SP",
+      "valor_total": 55000.0,
+      "data_inclusao": null,
+      "valor_total_num": 55000.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000033/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 11500.0,
+      "data_inclusao": null,
+      "valor_total_num": 11500.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000034/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 480.0,
+      "data_inclusao": null,
+      "valor_total_num": 480.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000035/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 6880.0,
+      "data_inclusao": null,
+      "valor_total_num": 6880.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000036/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 129.0,
+      "data_inclusao": null,
+      "valor_total_num": 129.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000037/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 1720.0,
+      "data_inclusao": null,
+      "valor_total_num": 1720.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000038/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 3380.0,
+      "data_inclusao": null,
+      "valor_total_num": 3380.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000039/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 590.0,
+      "data_inclusao": null,
+      "valor_total_num": 590.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000040/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 2541.0,
+      "data_inclusao": null,
+      "valor_total_num": 2541.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000041/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 18909.0,
+      "data_inclusao": null,
+      "valor_total_num": 18909.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "01870847000190-2-000042/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE ARAGARCAS",
+      "municipio_nome": "Aragarças",
+      "uf_sigla": "GO",
+      "valor_total": 897.0,
+      "data_inclusao": null,
+      "valor_total_num": 897.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "17217332000125-2-000180/2024",
+      "orgao_entidade": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES DO ESTADO MG",
+      "municipio_nome": "Belo Horizonte",
+      "uf_sigla": "MG",
+      "valor_total": 129600.0,
+      "data_inclusao": null,
+      "valor_total_num": 129600.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00509968000148-2-002511/2023",
+      "orgao_entidade": "TRIBUNAL SUPERIOR DO TRABALHO",
+      "municipio_nome": "São Paulo",
+      "uf_sigla": "SP",
+      "valor_total": 19240.0,
+      "data_inclusao": null,
+      "valor_total_num": 19240.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00509968000148-2-002512/2023",
+      "orgao_entidade": "TRIBUNAL SUPERIOR DO TRABALHO",
+      "municipio_nome": "São Paulo",
+      "uf_sigla": "SP",
+      "valor_total": 750.0,
+      "data_inclusao": null,
+      "valor_total_num": 750.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00683012000168-2-000015/2024",
+      "orgao_entidade": "CAMARA MUNICIPAL DE BERURI",
+      "municipio_nome": "Beruri",
+      "uf_sigla": "AM",
+      "valor_total": 68900.0,
+      "data_inclusao": null,
+      "valor_total_num": 68900.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "11402887000160-2-000105/2024",
+      "orgao_entidade": "INSTITUTO FEDERAL DE EDUCACAO, CIENCIA E TECNOLOGIA DE SANTA CATARINA",
+      "municipio_nome": "Florianópolis",
+      "uf_sigla": "SC",
+      "valor_total": 18400.0,
+      "data_inclusao": null,
+      "valor_total_num": 18400.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00497560000101-2-000482/2024",
+      "orgao_entidade": "SUPERIOR TRIBUNAL MILITAR",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 869.36,
+      "data_inclusao": null,
+      "valor_total_num": 869.36
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00497560000101-2-000483/2024",
+      "orgao_entidade": "SUPERIOR TRIBUNAL MILITAR",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 458.0,
+      "data_inclusao": null,
+      "valor_total_num": 458.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00497560000101-2-000484/2024",
+      "orgao_entidade": "SUPERIOR TRIBUNAL MILITAR",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 1134.0,
+      "data_inclusao": null,
+      "valor_total_num": 1134.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00497560000101-2-000485/2024",
+      "orgao_entidade": "SUPERIOR TRIBUNAL MILITAR",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 291.8,
+      "data_inclusao": null,
+      "valor_total_num": 291.8
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00497560000101-2-000486/2024",
+      "orgao_entidade": "SUPERIOR TRIBUNAL MILITAR",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 165.74,
+      "data_inclusao": null,
+      "valor_total_num": 165.74
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "00497560000101-2-000487/2024",
+      "orgao_entidade": "SUPERIOR TRIBUNAL MILITAR",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 479.23,
+      "data_inclusao": null,
+      "valor_total_num": 479.23
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "04564530000113-2-000059/2024",
+      "orgao_entidade": "RONDONIA SECRETARIA DE ESTADO DA EDUCACAO",
+      "municipio_nome": "Porto Velho",
+      "uf_sigla": "RO",
+      "valor_total": 2058500.0,
+      "data_inclusao": null,
+      "valor_total_num": 2058500.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "46374500000194-2-006600/2024",
+      "orgao_entidade": "SECRETARIA DE ESTADO DA SAUDE",
+      "municipio_nome": "Casa Branca",
+      "uf_sigla": "SP",
+      "valor_total": 16830.0,
+      "data_inclusao": null,
+      "valor_total_num": 16830.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "46374500000194-2-006601/2024",
+      "orgao_entidade": "SECRETARIA DE ESTADO DA SAUDE",
+      "municipio_nome": "Casa Branca",
+      "uf_sigla": "SP",
+      "valor_total": 3840.0,
+      "data_inclusao": null,
+      "valor_total_num": 3840.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "46374500000194-2-006602/2024",
+      "orgao_entidade": "SECRETARIA DE ESTADO DA SAUDE",
+      "municipio_nome": "Casa Branca",
+      "uf_sigla": "SP",
+      "valor_total": 133.0,
+      "data_inclusao": null,
+      "valor_total_num": 133.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "46374500000194-2-006603/2024",
+      "orgao_entidade": "SECRETARIA DE ESTADO DA SAUDE",
+      "municipio_nome": "São Paulo",
+      "uf_sigla": "SP",
+      "valor_total": 30420.0,
+      "data_inclusao": null,
+      "valor_total_num": 30420.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "90152950000124-2-000206/2024",
+      "orgao_entidade": "MUNICIPIO DE ARAMBARE",
+      "municipio_nome": "Floriano Peixoto",
+      "uf_sigla": "RS",
+      "valor_total": 2536.0,
+      "data_inclusao": null,
+      "valor_total_num": 2536.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "19843929000100-2-001491/2024",
+      "orgao_entidade": "FUNDACAO HOSPITALAR DO ESTADO DE MINAS GERAIS",
+      "municipio_nome": "Belo Horizonte",
+      "uf_sigla": "MG",
+      "valor_total": 34700400.0,
+      "data_inclusao": null,
+      "valor_total_num": 34700400.0
+    },
+    {
+      "dataset_key": "contratos",
+      "numero_controle_pncp": "18682930000138-2-000132/2024",
+      "orgao_entidade": "MUNICIPIO DE ANDRELANDIA",
+      "municipio_nome": "Andrelândia",
+      "uf_sigla": "MG",
+      "valor_total": 1073667.15,
+      "data_inclusao": null,
+      "valor_total_num": 1073667.15
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "88073291000199-1-000208/2024",
+      "orgao_entidade": "MUNICIPIO DE BAGE",
+      "municipio_nome": "Bagé",
+      "uf_sigla": "RS",
+      "valor_total": null,
+      "data_inclusao": "2025-01-02T09:45:47",
+      "valor_total_num": null
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "75380071000166-1-000186/2024",
+      "orgao_entidade": "MUNICIPIO DE RONDON",
+      "municipio_nome": "Rondon",
+      "uf_sigla": "PR",
+      "valor_total": 695550.0,
+      "data_inclusao": "2025-01-06T08:56:29",
+      "valor_total_num": 695550.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "82854670000130-1-000249/2024",
+      "orgao_entidade": "MUNICIPIO DE XAXIM",
+      "municipio_nome": "Xaxim",
+      "uf_sigla": "SC",
+      "valor_total": 10703.52,
+      "data_inclusao": "2025-01-07T09:50:19",
+      "valor_total_num": 10703.52
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "82854670000130-1-000250/2024",
+      "orgao_entidade": "MUNICIPIO DE XAXIM",
+      "municipio_nome": "Xaxim",
+      "uf_sigla": "SC",
+      "valor_total": 135000.0,
+      "data_inclusao": "2025-01-07T09:53:43",
+      "valor_total_num": 135000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "82854670000130-1-000251/2024",
+      "orgao_entidade": "MUNICIPIO DE XAXIM",
+      "municipio_nome": "Xaxim",
+      "uf_sigla": "SC",
+      "valor_total": 70000.0,
+      "data_inclusao": "2025-01-07T09:53:50",
+      "valor_total_num": 70000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "87958658000199-1-000157/2025",
+      "orgao_entidade": "SUBSECRETARIA DA ADMINISTRACAO CENTRAL DE LICITACOES",
+      "municipio_nome": "Porto Alegre",
+      "uf_sigla": "RS",
+      "valor_total": 1020000.0,
+      "data_inclusao": "2025-01-07T10:50:32",
+      "valor_total_num": 1020000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "18773785000109-1-000074/2024",
+      "orgao_entidade": "CONSORCIO INTERMUNICIPAL DE GESTAO E DESENVOLVIMENTO AMBIENTAL SUSTENTAVEL DAS VERTENTES",
+      "municipio_nome": "São João del Rei",
+      "uf_sigla": "MG",
+      "valor_total": 44676.3,
+      "data_inclusao": "2025-01-07T15:00:48",
+      "valor_total_num": 44676.3
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "27142058000126-1-000015/2025",
+      "orgao_entidade": "MUNICIPIO DE VITORIA",
+      "municipio_nome": "Vitória",
+      "uf_sigla": "ES",
+      "valor_total": 124450.0,
+      "data_inclusao": "2025-01-08T15:31:22",
+      "valor_total_num": 124450.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "83102285000107-1-000007/2025",
+      "orgao_entidade": "MUNICIPIO DE BALNEARIO CAMBORIU",
+      "municipio_nome": "Balneário Camboriú",
+      "uf_sigla": "SC",
+      "valor_total": 366809.0,
+      "data_inclusao": "2025-01-08T15:35:52",
+      "valor_total_num": 366809.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "46522942000130-1-000631/2024",
+      "orgao_entidade": "MUNICIPIO DE SANTO ANDRE",
+      "municipio_nome": "Santo André",
+      "uf_sigla": "SP",
+      "valor_total": 7919478.18,
+      "data_inclusao": "2025-01-08T16:30:33",
+      "valor_total_num": 7919478.18
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13927801000491-1-000001/2025",
+      "orgao_entidade": "MUNICIPIO DE SALVADOR",
+      "municipio_nome": "Salvador",
+      "uf_sigla": "BA",
+      "valor_total": 18000000.0,
+      "data_inclusao": "2025-01-09T17:04:40",
+      "valor_total_num": 18000000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13693122000152-1-000002/2025",
+      "orgao_entidade": "MUNICIPIO DE CASTRO ALVES",
+      "municipio_nome": "Castro Alves",
+      "uf_sigla": "BA",
+      "valor_total": 202000.0,
+      "data_inclusao": "2025-01-10T10:30:56",
+      "valor_total_num": 202000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13693122000152-1-000003/2025",
+      "orgao_entidade": "MUNICIPIO DE CASTRO ALVES",
+      "municipio_nome": "Castro Alves",
+      "uf_sigla": "BA",
+      "valor_total": 202000.0,
+      "data_inclusao": "2025-01-10T10:42:34",
+      "valor_total_num": 202000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13927801000491-1-000002/2025",
+      "orgao_entidade": "MUNICIPIO DE SALVADOR",
+      "municipio_nome": "Salvador",
+      "uf_sigla": "BA",
+      "valor_total": 9336000.0,
+      "data_inclusao": "2025-01-10T11:48:36",
+      "valor_total_num": 9336000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13927801000491-1-000003/2025",
+      "orgao_entidade": "MUNICIPIO DE SALVADOR",
+      "municipio_nome": "Salvador",
+      "uf_sigla": "BA",
+      "valor_total": null,
+      "data_inclusao": "2025-01-10T11:49:06",
+      "valor_total_num": null
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13927801000491-1-000004/2025",
+      "orgao_entidade": "MUNICIPIO DE SALVADOR",
+      "municipio_nome": "Salvador",
+      "uf_sigla": "BA",
+      "valor_total": 509000.0,
+      "data_inclusao": "2025-01-10T11:49:10",
+      "valor_total_num": 509000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13927801000491-1-000005/2025",
+      "orgao_entidade": "MUNICIPIO DE SALVADOR",
+      "municipio_nome": "Salvador",
+      "uf_sigla": "BA",
+      "valor_total": 5943000.0,
+      "data_inclusao": "2025-01-10T11:49:17",
+      "valor_total_num": 5943000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13927801000491-1-000006/2025",
+      "orgao_entidade": "MUNICIPIO DE SALVADOR",
+      "municipio_nome": "Salvador",
+      "uf_sigla": "BA",
+      "valor_total": 25205000.0,
+      "data_inclusao": "2025-01-10T11:49:23",
+      "valor_total_num": 25205000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13927801000491-1-000007/2025",
+      "orgao_entidade": "MUNICIPIO DE SALVADOR",
+      "municipio_nome": "Salvador",
+      "uf_sigla": "BA",
+      "valor_total": 4423500.0,
+      "data_inclusao": "2025-01-10T11:49:26",
+      "valor_total_num": 4423500.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "46522942000130-1-000633/2024",
+      "orgao_entidade": "MUNICIPIO DE SANTO ANDRE",
+      "municipio_nome": "Santo André",
+      "uf_sigla": "SP",
+      "valor_total": 233077.13,
+      "data_inclusao": "2025-01-10T13:31:58",
+      "valor_total_num": 233077.13
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "11358157000100-1-000001/2025",
+      "orgao_entidade": "MUNICIPIO DE ITAPETIM",
+      "municipio_nome": "Itapetim",
+      "uf_sigla": "PE",
+      "valor_total": 207844.66,
+      "data_inclusao": "2025-01-14T12:00:40",
+      "valor_total_num": 207844.66
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000001/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 750000.0,
+      "data_inclusao": "2025-01-14T12:05:19",
+      "valor_total_num": 750000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000002/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 860000.0,
+      "data_inclusao": "2025-01-14T12:17:30",
+      "valor_total_num": 860000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "82821208000136-1-000008/2025",
+      "orgao_entidade": "MUNICIPIO DE ITAPIRANGA",
+      "municipio_nome": "Itapiranga",
+      "uf_sigla": "SC",
+      "valor_total": 8800.0,
+      "data_inclusao": "2025-01-14T12:29:15",
+      "valor_total_num": 8800.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000003/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 791880.36,
+      "data_inclusao": "2025-01-14T12:30:46",
+      "valor_total_num": 791880.36
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000004/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 860000.0,
+      "data_inclusao": "2025-01-14T12:40:57",
+      "valor_total_num": 860000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000005/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 791880.36,
+      "data_inclusao": "2025-01-14T14:34:34",
+      "valor_total_num": 791880.36
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000006/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 991798.94,
+      "data_inclusao": "2025-01-14T14:46:49",
+      "valor_total_num": 991798.94
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000007/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 816384.69,
+      "data_inclusao": "2025-01-14T14:56:49",
+      "valor_total_num": 816384.69
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "76288760000108-1-000021/2025",
+      "orgao_entidade": "MUNICIPIO DE ROLANDIA",
+      "municipio_nome": "Rolândia",
+      "uf_sigla": "PR",
+      "valor_total": 30250.0,
+      "data_inclusao": "2025-01-14T15:00:37",
+      "valor_total_num": 30250.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000008/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 2000000.0,
+      "data_inclusao": "2025-01-14T15:05:25",
+      "valor_total_num": 2000000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000009/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 815168.61,
+      "data_inclusao": "2025-01-14T15:15:39",
+      "valor_total_num": 815168.61
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000010/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 996791.86,
+      "data_inclusao": "2025-01-14T15:25:04",
+      "valor_total_num": 996791.86
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000011/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 2760000.0,
+      "data_inclusao": "2025-01-14T15:41:31",
+      "valor_total_num": 2760000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "87958658000199-1-000172/2025",
+      "orgao_entidade": "SUBSECRETARIA DA ADMINISTRACAO CENTRAL DE LICITACOES",
+      "municipio_nome": "Porto Alegre",
+      "uf_sigla": "RS",
+      "valor_total": 640009.47,
+      "data_inclusao": "2025-01-14T15:41:58",
+      "valor_total_num": 640009.47
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000012/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 991798.94,
+      "data_inclusao": "2025-01-14T15:53:12",
+      "valor_total_num": 991798.94
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000013/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 996791.86,
+      "data_inclusao": "2025-01-14T16:02:32",
+      "valor_total_num": 996791.86
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "00489828000902-1-000014/2025",
+      "orgao_entidade": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "municipio_nome": "Brasília",
+      "uf_sigla": "DF",
+      "valor_total": 2760000.0,
+      "data_inclusao": "2025-01-14T16:11:17",
+      "valor_total_num": 2760000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "03773942000109-1-000034/2024",
+      "orgao_entidade": "MUNICIPIO DE PEDRA PRETA",
+      "municipio_nome": "Pedra Preta",
+      "uf_sigla": "MT",
+      "valor_total": 1500.0,
+      "data_inclusao": "2025-01-15T15:32:57",
+      "valor_total_num": 1500.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "17744434000107-1-000002/2025",
+      "orgao_entidade": "MUNICIPIO DE RIO POMBA",
+      "municipio_nome": "Rio Pomba",
+      "uf_sigla": "MG",
+      "valor_total": 35000.0,
+      "data_inclusao": "2025-01-15T17:06:50",
+      "valor_total_num": 35000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "82854670000130-1-000254/2024",
+      "orgao_entidade": "MUNICIPIO DE XAXIM",
+      "municipio_nome": "Xaxim",
+      "uf_sigla": "SC",
+      "valor_total": 3206928.11,
+      "data_inclusao": "2025-01-17T08:25:58",
+      "valor_total_num": 3206928.11
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13323274000163-1-000007/2025",
+      "orgao_entidade": "BAHIA SECRETARIA DA ADMINISTRACAO",
+      "municipio_nome": "Salvador",
+      "uf_sigla": "BA",
+      "valor_total": 2260900.0,
+      "data_inclusao": "2025-01-17T09:38:42",
+      "valor_total_num": 2260900.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "13927801000491-1-000008/2025",
+      "orgao_entidade": "MUNICIPIO DE SALVADOR",
+      "municipio_nome": "Salvador",
+      "uf_sigla": "BA",
+      "valor_total": 22745000.0,
+      "data_inclusao": "2025-01-17T16:02:29",
+      "valor_total_num": 22745000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "82909409000190-1-000160/2024",
+      "orgao_entidade": "MUNICIPIO DE IMBITUBA",
+      "municipio_nome": "Imbituba",
+      "uf_sigla": "SC",
+      "valor_total": 180000.0,
+      "data_inclusao": "2025-01-17T19:24:13",
+      "valor_total_num": 180000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "83102343000194-1-000001/2025",
+      "orgao_entidade": "MUNICIPIO DE BRUSQUE",
+      "municipio_nome": "Brusque",
+      "uf_sigla": "SC",
+      "valor_total": 60000.0,
+      "data_inclusao": "2025-01-20T09:16:31",
+      "valor_total_num": 60000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "17894064000186-1-000001/2025",
+      "orgao_entidade": "MUNICIPIO DE DELFINOPOLIS",
+      "municipio_nome": "Delfinópolis",
+      "uf_sigla": "MG",
+      "valor_total": 54137.95,
+      "data_inclusao": "2025-01-20T09:22:35",
+      "valor_total_num": 54137.95
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "46522942000130-1-000001/2025",
+      "orgao_entidade": "MUNICIPIO DE SANTO ANDRE",
+      "municipio_nome": "Santo André",
+      "uf_sigla": "SP",
+      "valor_total": 714091.14,
+      "data_inclusao": "2025-01-20T15:54:49",
+      "valor_total_num": 714091.14
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "83169623000110-1-000012/2025",
+      "orgao_entidade": "MUNICIPIO DE JOINVILLE",
+      "municipio_nome": "Joinville",
+      "uf_sigla": "SC",
+      "valor_total": 4240.94,
+      "data_inclusao": "2025-01-21T08:26:35",
+      "valor_total_num": 4240.94
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "83102343000194-1-000002/2025",
+      "orgao_entidade": "MUNICIPIO DE BRUSQUE",
+      "municipio_nome": "Brusque",
+      "uf_sigla": "SC",
+      "valor_total": 60000.0,
+      "data_inclusao": "2025-01-21T09:42:51",
+      "valor_total_num": 60000.0
+    },
+    {
+      "dataset_key": "contratacoes_publicacao",
+      "numero_controle_pncp": "76995323000124-1-000001/2025",
+      "orgao_entidade": "MUNICIPIO DE MARIOPOLIS",
+      "municipio_nome": "Mariópolis",
+      "uf_sigla": "PR",
+      "valor_total": 93000.0,
+      "data_inclusao": "2025-01-21T10:43:48",
+      "valor_total_num": 93000.0
+    }
+  ]
+}

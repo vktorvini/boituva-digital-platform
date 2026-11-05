@@ -1,0 +1,364 @@
+{
+  "status": "ok",
+  "summary": {
+    "rows": 49,
+    "indicadores": 2
+  },
+  "rows": [
+    {
+      "indicador_id": "censo_territorio",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": 61081.0,
+      "unidade": "Pessoas"
+    },
+    {
+      "indicador_id": "censo_territorio",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": 248.954,
+      "unidade": "Quilômetros quadrados"
+    },
+    {
+      "indicador_id": "censo_territorio",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": 245.35,
+      "unidade": "Habitante por quilômetro quadrado"
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": 3980440.0,
+      "unidade": "Mil Reais"
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": 25.08,
+      "unidade": "%"
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": 10.11,
+      "unidade": "%"
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": 0.13,
+      "unidade": "%"
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": 0.07,
+      "unidade": "%"
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": 0.04,
+      "unidade": "%"
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "municipio_id_ibge": 3507001,
+      "ano_nome": "2022",
+      "valor_numerico": null,
+      "unidade": ""
+    }
+  ],
+  "grouped": [
+    {
+      "indicador_id": "censo_territorio",
+      "registros": 3,
+      "media_valor": 20525.101333333332
+    },
+    {
+      "indicador_id": "pib_municipal",
+      "registros": 46,
+      "media_valor": 663412.5716666667
+    }
+  ]
+}

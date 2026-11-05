@@ -1,0 +1,27 @@
+{
+  "dataset": "gold_receita_mensal_fonte",
+  "camada": "gold",
+  "fonte": "tce_sp",
+  "municipio": "boituva",
+  "pipeline_version": "1.1.0",
+  "schema_version": "2.0.0",
+  "data_execucao_utc": "2026-05-12T17:33:28+00:00",
+  "arquivo_saida": "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\gold\\tce\\financeiro\\gold_receita_mensal_fonte.parquet",
+  "checksum_sha256": "831fc61e989d5e5828d6b53f9cca16d640041624ea12845a2d2f168619b7ad4f",
+  "arquivos_entrada": [
+    "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\silver\\tce\\receitas\\consolidated\\receitas_boituva_full.parquet"
+  ],
+  "registros_totais": 54,
+  "num_colunas": 5,
+  "colunas": [
+    "ano",
+    "mes_num",
+    "ano_mes_ref",
+    "ds_fonte_recurso_norm",
+    "vl_arrecadacao_total"
+  ],
+  "duplicatas_exatas": 0,
+  "linhas_com_nulos": 0,
+  "nulos_por_coluna": {},
+  "status": "OK"
+}

@@ -1,0 +1,73 @@
+name: Atualização Mensal de Dados
+
+on:
+  schedule:
+    # Dia 5 de cada mês, 06:00 UTC (03:00 BRT)
+    - cron: "0 6 5 * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Executar sem subir ao Supabase"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+      year:
+        description: "Ano a processar (vazio = ano corrente)"
+        required: false
+        type: string
+
+env:
+  PYTHON_VERSION: "3.10"
+
+jobs:
+  sync-data:
+    name: Pipeline TCE-SP → Supabase
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: pipeline/boituva-tce-pipeline
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Diagnóstico de meses pendentes
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python - <<'PY'
+          from datetime import date
+          from src.core.month_freshness import MONTH_NAMES, reference_date, expected_months_for_year
+          y, m = reference_date()
+          print(f"Referência: {y}-{m:02d} ({MONTH_NAMES.get(m, m)})")
+          print(f"Meses esperados em {y}: {expected_months_for_year(y)}")
+          PY
+
+      - name: Executar atualização incremental
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          BDP_MUNICIPIO_IBGE_CODE: "3507001"
+          BDP_DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          YEAR="${{ github.event.inputs.year }}"
+          if [ -n "$YEAR" ]; then
+            python scripts/run_incremental.py --years "$YEAR"
+          else
+            python scripts/run_incremental.py
+          fi
+
+      - name: Resumo
+        if: always()
+        run: echo "Pipeline concluído. Verifique logs acima para meses coletados."

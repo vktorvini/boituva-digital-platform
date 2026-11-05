@@ -1,53 +1,50 @@
-# Guia de Upload de Dados para Supabase
+﻿# Guia de Upload de Dados para Supabase
 
-## ✅ Configuração Concluída
+## Configuracao segura
 
-A pipeline foi configurada com sucesso para conectar e fazer upload de dados para o Supabase.
+A pipeline deve carregar credenciais apenas a partir de arquivos `.env` ignorados pelo Git.
 
-### O que foi feito:
+### Regra obrigatoria
+Nunca documente ou versione senhas, `DATABASE_URL`, service role keys ou qualquer credencial real no repositorio.
 
-1. **Arquivo `.env` configurado** 
-   - Localização: `data-platform/pipeline/.env`
-   - Contém: Database URL do Supabase
-   ```
-   DATABASE_URL=postgresql://postgres:UKuUKaKA9YZ5TT6I@db.zporftfzvxbdntptsoea.supabase.co:5432/postgres
-   ```
+### Exemplo correto de `.env`
+```bash
+DATABASE_URL=postgresql://postgres:<SUA_SENHA>@db.<SEU_PROJETO>.supabase.co:5432/postgres
+```
 
-2. **Script de upload criado**
-   - Localização: `src/pipelines/upload_gold_to_cloud.py`
-   - Função: Faz upload dos arquivos Parquet de `data/gold/tce` para tabelas no Supabase
+## Como usar
 
-3. **Main.py atualizado**
-   - Nova opção: `--dataset upload_cloud`
-   - Integrado ao comando principal da pipeline
-
-## 🚀 Como Usar
-
-### Opção 1: Executar Upload via Main.py
-
+### Opcao 1: executar upload legado via main.py
 ```bash
 cd pipeline/boituva-tce-pipeline
 python -m src.main --dataset upload_cloud
 ```
 
-### Opção 2: Executar Script Diretamente
+### Opcao 2: executar upload executivo via main.py
+```bash
+cd pipeline/boituva-tce-pipeline
+python -m src.main --dataset upload_exec_cloud
+```
 
+### Opcao 3: executar script PowerShell unico
+```powershell
+cd pipeline/boituva-tce-pipeline
+powershell -ExecutionPolicy Bypass -File .\scripts\upload_exec_supabase.ps1
+```
+
+### Opcao 4: validar sem gravar no banco
+```powershell
+cd pipeline/boituva-tce-pipeline
+powershell -ExecutionPolicy Bypass -File .\scripts\upload_exec_supabase.ps1 -DryRun -SkipIbgeRefresh
+```
+
+### Opcao 5: executar script legado diretamente
 ```bash
 cd pipeline/boituva-tce-pipeline
 python -m src.pipelines.upload_gold_to_cloud
 ```
 
-### Opção 3: Usar em Código Python
-
-```python
-from src.pipelines.upload_gold_to_cloud import upload_all_gold_data
-
-upload_all_gold_data()
-```
-
-## 📊 Dados que Serão Enviados
-
-A pipeline fará upload dos seguintes arquivos para o Supabase:
+## Dados enviados
 
 | Arquivo Local | Tabela no Banco |
 |---|---|
@@ -55,72 +52,30 @@ A pipeline fará upload dos seguintes arquivos para o Supabase:
 | `data/gold/tce/financeiro/gold_receita_mensal_fonte.parquet` | `gold_receita_mensal_fonte` |
 | `data/gold/tce/financeiro/gold_despesa_mensal_evento.parquet` | `gold_despesa_mensal_evento` |
 
-## ⚙️ Detalhes Técnicos
+## Dados enviados no modelo executivo
 
-### Dependências Instaladas
-- `pandas`: Lê e manipula os arquivos Parquet
-- `sqlalchemy`: ORM para conexão com PostgreSQL
-- `psycopg2-binary`: Driver PostgreSQL
-- `python-dotenv`: Carrega variáveis do `.env`
+| Origem Local/API | Tabela no Banco |
+|---|---|
+| API Localidades IBGE Boituva | `dim_municipio` |
+| `gold_financeiro_mensal.parquet` | `dim_tempo` |
+| seed do app executivo | `dim_secretaria` |
+| `gold_receita_mensal_fonte.parquet` | `dim_fonte_recurso` |
+| `gold_financeiro_mensal.parquet` | `fato_financeiro_mensal` |
+| `gold_receita_mensal_fonte.parquet` | `fato_receita_mensal_fonte` |
+| indicadores municipais curados do IBGE | `fato_ibge_indicador_municipio` |
 
-### Caracteres da Conexão
-- **Host**: `db.zporftfzvxbdntptsoea.supabase.co`
-- **Port**: `5432`
-- **Database**: `postgres`
-- **User**: `postgres`
-- **Driver**: psycopg2 (PostgreSQL)
+## Boas praticas
+- use `.env` local e nunca comite credenciais
+- prefira rotacionar senhas se alguma credencial tiver sido exposta
+- valide conexao antes do upload
+- separe tabelas operacionais de views executivas
 
-### Comportamento do Upload
-- **Mode**: `replace` (substitui dados existentes por padrão)
-- **Chunk Size**: 1000 linhas por vez
-- **Validação**: Testa conexão antes de enviar dados
-
-## 🔍 Testando a Conexão
-
+## Teste de conexao
 ```bash
 python -c "from src.core.database import test_connection; test_connection()"
 ```
 
-**Saída esperada:**
-```
-Conexão OK
-database: postgres
-schema: public
-timestamp: 2026-03-30 ...
-```
-
-## 🛠️ Solução de Problemas
-
-### Erro: "could not translate host name"
-- **Causa**: Problema de conectividade/DNS ou sem internet
-- **Solução**: Verifique conexão com internet e acesso ao Supabase
-
-### Erro: "FATAL: password authentication failed"
-- **Causa**: Credenciais incorretas
-- **Solução**: Verifique a `DATABASE_URL` no arquivo `.env`
-
-### Erro: "Table already exists"
-- **Causa**: Tabela já existe no banco (depende do `if_exists`)
-- **Solução**: Use `if_exists='append'` para adicionar dados, não sobrescrever
-
-### Arquivo Parquet não encontrado
-- **Causa**: Arquivos não foram gerados por pipelines anteriores
-- **Solução**: Execute primeiro as pipelines de gold:
-  ```bash
-  python -m src.main --dataset gold_financeiro
-  python -m src.main --dataset gold_indicadores
-  ```
-
-## 📝 Próximos Passos
-
-1. ✅ Configuração do `.env` - **CONCLUÍDO**
-2. ✅ Script de upload - **CONCLUÍDO**
-3. ⏳ Testar conexão com Supabase (quando tiver acesso à internet)
-4. ⏳ Executar pipelines de gold (se ainda não fez)
-5. ⏳ Fazer upload dos dados para a nuvem
-
-## 📚 Referências
-
-- [Supabase PostgreSQL](https://supabase.com/docs/guides/database)
-- [SQLAlchemy PostgreSQL](https://docs.sqlalchemy.org/en/20/dialects/postgresql.html)
-- [Pandas to_sql](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html)
+## Proximos passos recomendados
+1. criar o modelo do app executivo com `docs/projeto/SUPABASE_EXECUTIVO_MEDALHAO.sql`
+2. subir dimensoes e fatos gold para o Supabase com `upload_exec_cloud`
+3. trocar os mocks do app por views executivas do banco

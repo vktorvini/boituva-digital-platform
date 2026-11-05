@@ -1,88 +1,64 @@
+"""
+Entrypoint CLI da Boituva Digital Platform.
+Usa o registry de pipelines para dispatching — sem elif encadeados.
+"""
+from __future__ import annotations
+
 import argparse
+import sys
 from typing import Optional
 
-from src.pipelines.despesas_tce import run_despesas_tce
-from src.pipelines.receitas_tce import run_receitas_tce
-from src.pipelines.silver_despesas_tce import run_silver_despesas_tce
-from src.pipelines.silver_receitas_tce import run_silver_receitas_tce
-from src.pipelines.gold_financeiro_tce import run_gold_financeiro_tce
-from src.pipelines.gold_indicadores_tce import run_gold_indicadores_tce
-from src.pipelines.upload_gold_to_cloud import upload_all_gold_data
+from src.core.logger import get_logger
+from src.pipelines import registry
+
+log = get_logger("main")
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Pipeline de ingestão e transformação de dados públicos de Boituva"
+        description="Pipeline de dados públicos — Boituva Digital Platform"
     )
-
     parser.add_argument(
         "--dataset",
-        choices=[
-            "despesas",
-            "receitas",
-            "ambos",
-            "silver_despesas",
-            "silver_receitas",
-            "gold_financeiro",
-            "gold_indicadores",
-            "upload_cloud",
-        ],
+        choices=registry.list_datasets(),
         default="ambos",
-        help="Escolhe qual pipeline executar",
+        help="Pipeline a executar",
     )
-
-    parser.add_argument(
-        "--force",
-        action="store_true",
-        help="Força reprocessamento",
-    )
-
-    parser.add_argument(
-        "--years",
-        nargs="+",
-        type=int,
-        help="Lista de anos específicos para processar. Ex: --years 2023 2024",
-    )
-
+    parser.add_argument("--force", action="store_true", help="Força reprocessamento")
+    parser.add_argument("--dry-run", action="store_true", help="Simula sem gravar no banco")
+    parser.add_argument("--years", nargs="+", type=int, help="Anos a processar (ex: 2023 2024)")
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
 
-    dataset: str = args.dataset
-    force_reprocess: bool = args.force
-    years: Optional[list[int]] = args.years
+    log.info(
+        "Pipeline iniciado",
+        extra={
+            "dataset": args.dataset,
+            "force": args.force,
+            "dry_run": args.dry_run,
+            "years": args.years,
+        },
+    )
 
-    print("\n===== MAIN =====")
-    print("Dataset:", dataset)
-    print("Force:", force_reprocess)
-    print("Years:", years if years else "todos do pipeline")
+    runner = registry.get(args.dataset)
+    if runner is None:
+        log.error("Dataset desconhecido", extra={"dataset": args.dataset})
+        sys.exit(1)
 
-    if dataset == "despesas":
-        run_despesas_tce(years=years, force_reprocess=force_reprocess)
+    try:
+        runner(
+            years=args.years,
+            force_reprocess=args.force,
+            dry_run=args.dry_run,
+        )
+        log.info("Pipeline finalizado com sucesso", extra={"dataset": args.dataset})
+    except Exception as e:
+        log.error("Pipeline falhou", extra={"dataset": args.dataset, "error": str(e)})
+        raise
 
-    elif dataset == "receitas":
-        run_receitas_tce(years=years, force_reprocess=force_reprocess)
-
-    elif dataset == "ambos":
-        run_despesas_tce(years=years, force_reprocess=force_reprocess)
-        run_receitas_tce(years=years, force_reprocess=force_reprocess)
-
-    elif dataset == "silver_despesas":
-        run_silver_despesas_tce(years=years, force_reprocess=force_reprocess)
-
-    elif dataset == "silver_receitas":
-        run_silver_receitas_tce(years=years, force_reprocess=force_reprocess)
-
-    elif dataset == "gold_financeiro":
-        run_gold_financeiro_tce(force_reprocess=force_reprocess)
-
-    elif dataset == "gold_indicadores":
-        run_gold_indicadores_tce(force_reprocess=force_reprocess)
-
-    elif dataset == "upload_cloud":
-        upload_all_gold_data()
 
 if __name__ == "__main__":
     main()
