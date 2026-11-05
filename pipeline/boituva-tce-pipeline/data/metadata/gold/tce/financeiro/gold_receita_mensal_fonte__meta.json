@@ -5,13 +5,13 @@
   "municipio": "boituva",
   "pipeline_version": "1.1.0",
   "schema_version": "2.0.0",
-  "data_execucao_utc": "2026-05-12T17:33:28+00:00",
+  "data_execucao_utc": "2026-11-05T16:47:50+00:00",
   "arquivo_saida": "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\gold\\tce\\financeiro\\gold_receita_mensal_fonte.parquet",
-  "checksum_sha256": "831fc61e989d5e5828d6b53f9cca16d640041624ea12845a2d2f168619b7ad4f",
+  "checksum_sha256": "40e7ee82af3b12e8adc4d24cee8449fc6eee753401a1d3c3d9d329e84d8beba2",
   "arquivos_entrada": [
     "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\silver\\tce\\receitas\\consolidated\\receitas_boituva_full.parquet"
   ],
-  "registros_totais": 54,
+  "registros_totais": 45,
   "num_colunas": 5,
   "colunas": [
     "ano",

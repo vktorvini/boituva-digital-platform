@@ -5,13 +5,13 @@
   "municipio": "boituva",
   "pipeline_version": "1.1.0",
   "schema_version": "2.0.0",
-  "data_execucao_utc": "2026-05-12T17:33:28+00:00",
+  "data_execucao_utc": "2026-11-05T16:47:50+00:00",
   "arquivo_saida": "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\gold\\tce\\financeiro\\gold_despesa_mensal_evento.parquet",
-  "checksum_sha256": "afd5fbae1872293274b82896c8be786385d638667aaa8043e3fd5766b31161cd",
+  "checksum_sha256": "5b5e6fea18853c062ee2e487313c47f1d6c4f2968627b550032272632ee53d40",
   "arquivos_entrada": [
     "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\silver\\tce\\despesas\\consolidated\\despesas_boituva_full.parquet"
   ],
-  "registros_totais": 48,
+  "registros_totais": 36,
   "num_colunas": 5,
   "colunas": [
     "ano",
