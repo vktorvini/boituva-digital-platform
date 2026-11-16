@@ -42,6 +42,18 @@ export interface FinanceiroMensal {
   municipio_id_ibge: number;
 }
 
+export interface DespesaMensalOrgao {
+  ano: number;
+  mes_num: number;
+  mes_nome: string;
+  ano_mes: string;
+  orgao_nome: string;
+  despesa_empenhada: number;
+  despesa_liquidada: number;
+  despesa_paga: number;
+  municipio_id_ibge: number;
+}
+
 export interface FinanceiroAnual {
   ano: number;
   receita_total: number;
@@ -149,6 +161,31 @@ export function useFinanceiroMensal(ano?: number) {
       const { data, error } = await query;
       if (error) throw new Error(`vw_financeiro_mensal: ${error.message}`);
       return (data ?? []) as FinanceiroMensal[];
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+}
+
+/**
+ * Despesas mensais pelos órgãos identificados na fonte TCE-SP.
+ * A view retorna agregados por mês e órgão, sem expor lançamentos individuais.
+ */
+export function useDespesaMensalOrgao() {
+  return useQuery<DespesaMensalOrgao[]>({
+    queryKey: ["vw_despesa_mensal_orgao"],
+    queryFn: async () => {
+      const { data, error } = await getClient()
+        .from("vw_despesa_mensal_orgao")
+        .select(
+          "ano, mes_num, mes_nome, ano_mes, orgao_nome, " +
+          "despesa_empenhada, despesa_liquidada, despesa_paga, municipio_id_ibge"
+        )
+        .order("ano", { ascending: true })
+        .order("mes_num", { ascending: true })
+        .order("orgao_nome", { ascending: true });
+
+      if (error) throw new Error(`vw_despesa_mensal_orgao: ${error.message}`);
+      return (data ?? []) as DespesaMensalOrgao[];
     },
     staleTime: 5 * 60 * 1000,
   });

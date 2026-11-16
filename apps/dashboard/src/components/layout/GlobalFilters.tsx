@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useExecutiveDashboard } from "@/hooks/useExecutiveDashboard";
 
-export function GlobalFilters() {
+export function GlobalFilters({ hideSecretariaFilter = false }: { hideSecretariaFilter?: boolean }) {
   const {
     filters,
     availableYears,
@@ -43,7 +43,11 @@ export function GlobalFilters() {
         <span className="text-xs font-semibold uppercase tracking-wider">Filtros</span>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:max-w-3xl lg:flex-1">
+      <div
+        className={`grid grid-cols-2 gap-2 ${
+          hideSecretariaFilter ? "sm:grid-cols-3 lg:max-w-2xl" : "sm:grid-cols-4 lg:max-w-3xl"
+        } lg:flex-1`}
+      >
         <Select value={String(filters.year)} onValueChange={(value) => setYear(Number(value))}>
           <SelectTrigger className="h-9 bg-background/80 text-xs">
             <SelectValue placeholder="Ano" />
@@ -70,25 +74,29 @@ export function GlobalFilters() {
           </SelectContent>
         </Select>
 
-        <Select value={filters.secretaria} onValueChange={setSecretaria}>
-          <SelectTrigger className="col-span-2 h-9 bg-background/80 text-xs sm:col-span-1">
-            <SelectValue placeholder="Secretaria" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">Todas as secretarias</SelectItem>
-            {secretarias.map((secretaria) => (
-              <SelectItem key={secretaria.id} value={secretaria.id}>
-                {secretaria.nome}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        {!hideSecretariaFilter && (
+          <Select value={filters.secretaria} onValueChange={setSecretaria}>
+            <SelectTrigger className="col-span-2 h-9 bg-background/80 text-xs sm:col-span-1">
+              <SelectValue placeholder="Secretaria" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todas as secretarias</SelectItem>
+              {secretarias.map((secretaria) => (
+                <SelectItem key={secretaria.id} value={secretaria.id}>
+                  {secretaria.nome}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
 
         <Button
           type="button"
           variant="outline"
           size="sm"
-          className="col-span-2 h-9 justify-center gap-1.5 text-xs sm:col-span-1"
+          className={`col-span-2 h-9 justify-center gap-1.5 text-xs sm:col-span-1 ${
+            hideSecretariaFilter ? "sm:col-span-1" : ""
+          }`}
           onClick={resetFilters}
         >
           <RotateCcw className="h-3.5 w-3.5" />

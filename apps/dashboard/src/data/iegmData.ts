@@ -616,10 +616,14 @@ export const planoExecucao: ExecutiveAction[] = [
 
 /** Retorna os dados do ano mais recente disponível */
 export function getLatestYearData(municipio: MunicipioRegional, ano?: number) {
-  const targetAno = ano ?? Math.max(...municipio.iegmSeries.map((s) => s.ano));
-  const iegm = municipio.iegmSeries.find((s) => s.ano === targetAno) ?? municipio.iegmSeries.at(-1)!;
-  const iGovTi = municipio.iGovTiSeries.find((s) => s.ano === targetAno) ?? municipio.iGovTiSeries.at(-1)!;
-  return { iegm, iGovTi, ano: targetAno };
+  const getYearData = <T extends { ano: number }>(series: T[]) => {
+    const sorted = [...series].sort((a, b) => a.ano - b.ano);
+    if (ano == null) return sorted.at(-1)!;
+    return sorted.filter((item) => item.ano <= ano).at(-1) ?? sorted[0]!;
+  };
+  const iegm = getYearData(municipio.iegmSeries);
+  const iGovTi = getYearData(municipio.iGovTiSeries);
+  return { iegm, iGovTi, ano: iegm.ano };
 }
 
 /** Ranking IEGM do ano mais recente — ordena desc por nota */

@@ -41,6 +41,12 @@ try {
         }
     }
 
+    Write-Host '[STEP] Reconstruindo Gold Financeiro a partir dos dados Silver...'
+    & $pythonExe -m src.main --dataset gold_financeiro
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Falha ao reconstruir Gold Financeiro.'
+    }
+
     Write-Host '[STEP] Enviando modelo executivo para o Supabase...'
     $execArgs = @('-m', 'src.main', '--dataset', 'upload_exec_cloud')
     if ($DryRun) {

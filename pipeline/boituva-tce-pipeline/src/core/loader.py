@@ -12,9 +12,11 @@ from __future__ import annotations
 import time
 from contextlib import contextmanager
 from typing import Generator
+from uuid import UUID
 
 import pandas as pd
 from sqlalchemy import create_engine, text
+from sqlalchemy.dialects.postgresql import UUID as PostgreSQLUUID
 from sqlalchemy.engine import Engine
 
 from src.core.config import settings
@@ -89,6 +91,11 @@ def upload_frame(
 ) -> None:
     """Carrega DataFrame inteiro na tabela via to_sql (append por padrão)."""
     t0 = time.perf_counter()
+    uuid_columns = {
+        column: PostgreSQLUUID(as_uuid=True)
+        for column in df.columns
+        if any(isinstance(value, UUID) for value in df[column].dropna())
+    }
     df.to_sql(
         table.split(".")[-1],      # nome sem schema
         schema=table.split(".")[0] if "." in table else None,
@@ -97,6 +104,7 @@ def upload_frame(
         index=False,
         method="multi",
         chunksize=chunksize,
+        dtype=uuid_columns or None,
     )
     elapsed = round(time.perf_counter() - t0, 2)
     log.info(

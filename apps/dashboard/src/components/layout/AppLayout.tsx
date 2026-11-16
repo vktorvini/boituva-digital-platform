@@ -8,9 +8,10 @@ import { getRouteTitle } from "@/lib/routes";
 
 interface AppLayoutProps {
   children: React.ReactNode;
+  hideSecretariaFilter?: boolean;
 }
 
-export function AppLayout({ children }: AppLayoutProps) {
+export function AppLayout({ children, hideSecretariaFilter = false }: AppLayoutProps) {
   const { pathname } = useLocation();
   const { periodLabel } = useExecutiveDashboard();
   const pageTitle = getRouteTitle(pathname);
@@ -52,8 +53,8 @@ export function AppLayout({ children }: AppLayoutProps) {
               </div>
             </div>
 
-            <div className="border-t border-border/30 bg-muted/20 px-4 py-3 md:px-6">
-              <GlobalFilters />
+            <div className="border-t border-border/30 bg-muted/20 px-4 py-3 md:px-6 print:hidden">
+              <GlobalFilters hideSecretariaFilter={hideSecretariaFilter} />
             </div>
           </header>
 

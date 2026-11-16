@@ -6,6 +6,7 @@ import {
   Waypoints,
   Globe,
   Landmark,
+  Radar,
   Vote,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
@@ -31,6 +32,7 @@ const navGroups = [
     label: "Finanças & Desempenho",
     items: [
       { title: "Execução Financeira", url: "/execucao", icon: BarChart3 },
+      { title: "Radar de Gestão", url: "/radar-gestao", icon: Radar },
       { title: "Índice IEGM", url: "/painel/iegm-scorecard", icon: Target },
       { title: "Comparativo Regional", url: "/comparativo-regional", icon: Waypoints },
     ],
@@ -51,7 +53,7 @@ export function AppSidebar() {
   const collapsed = state === "collapsed";
 
   return (
-    <Sidebar collapsible="icon" className="border-r border-sidebar-border">
+    <Sidebar collapsible="icon" className="border-r border-sidebar-border print:hidden">
       <SidebarHeader className="border-b border-sidebar-border/50 p-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1 shadow-sm">

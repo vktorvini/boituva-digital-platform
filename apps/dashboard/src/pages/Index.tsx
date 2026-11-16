@@ -118,7 +118,7 @@ export default function Index() {
           <KpiCard
             title="Maturidade IEGM"
             value={`Faixa ${boituvaIEGM?.iegm.faixa || "C+"}`}
-            subtitle={`Nota ${boituvaIEGM?.iegm.nota.toFixed(1) || "5.5"} no TCESP`}
+            subtitle={`Nota ${boituvaIEGM?.iegm.nota.toFixed(1) || "5.5"} no TCESP · ${boituvaIEGM?.ano ?? "ano n/d"}`}
             status={boituvaIEGM?.iegm.faixa.includes("A") || boituvaIEGM?.iegm.faixa.includes("B") ? "normal" : "atencao"}
           />
         </section>

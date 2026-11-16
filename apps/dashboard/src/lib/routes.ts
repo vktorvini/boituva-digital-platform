@@ -1,6 +1,7 @@
 export const routeTitles: Record<string, string> = {
   "/": "Visão Geral",
   "/execucao": "Execução Financeira",
+  "/radar-gestao": "Radar de Gestão",
   "/ibge-municipio": "População (IBGE)",
   "/operacional/eleitorado": "Eleitorado (TSE)",
   "/operacional/contratos": "Contratos (PNCP)",

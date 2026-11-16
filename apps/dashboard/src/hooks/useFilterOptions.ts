@@ -4,6 +4,17 @@ import { useDimTempo, useFinanceiroAnual, useSecretarias } from "@/hooks/useSupa
 
 const CURRENT_YEAR = new Date().getFullYear();
 
+export function getFinancialYearOptions(
+  annualYears: number[],
+  calendarYears: number[],
+  currentYear = CURRENT_YEAR,
+) {
+  const years = new Set(
+    [...annualYears, ...calendarYears].filter((year) => Number.isInteger(year)),
+  );
+  return (years.size ? Array.from(years) : [currentYear]).sort((a, b) => b - a);
+}
+
 /**
  * Opções de filtros derivadas do Supabase (vw_financeiro_anual, vw_dim_tempo, vw_secretarias).
  */
@@ -12,21 +23,14 @@ export function useFilterOptions(selectedYear: number) {
   const dimTempo = useDimTempo();
   const secretariasQuery = useSecretarias();
 
-  const availableYears = useMemo(() => {
-    const years = new Set<number>();
-
-    (anual.data ?? []).forEach((row) => years.add(row.ano));
-    (dimTempo.data ?? []).forEach((row) => years.add(row.ano));
-
-    if (years.size === 0) {
-      return anual.isLoading || dimTempo.isLoading ? [CURRENT_YEAR] : [CURRENT_YEAR];
-    }
-
-    // Sempre inclui o ano corrente para permitir navegação (mesmo antes do pipeline subir junho)
-    years.add(CURRENT_YEAR);
-
-    return Array.from(years).sort((a, b) => b - a);
-  }, [anual.data, anual.isLoading, dimTempo.data, dimTempo.isLoading]);
+  const availableYears = useMemo(
+    () =>
+      getFinancialYearOptions(
+        (anual.data ?? []).map((row) => row.ano),
+        (dimTempo.data ?? []).map((row) => row.ano),
+      ),
+    [anual.data, dimTempo.data],
+  );
 
   const monthOptions = useMemo((): MonthOption[] => {
     const allOption = staticMonthOptions[0];

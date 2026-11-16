@@ -70,13 +70,14 @@ def _load_reference(name: str) -> list[dict]:
     return json.loads(ref_path.read_text(encoding="utf-8"))
 
 
-def _load_gold_inputs() -> tuple[pd.DataFrame, pd.DataFrame]:
+def _load_gold_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Lê os Parquets Gold de entrada. Falha imediatamente se ausentes."""
     gold_dir = paths.gold("tce", "financeiro")
     financeiro_path = gold_dir / "gold_financeiro_mensal.parquet"
     receita_path = gold_dir / "gold_receita_mensal_fonte.parquet"
+    despesa_orgao_path = gold_dir / "gold_despesa_mensal_orgao.parquet"
 
-    for p in (financeiro_path, receita_path):
+    for p in (financeiro_path, receita_path, despesa_orgao_path):
         if not p.exists():
             raise FileNotFoundError(
                 f"Gold não encontrado: {p}\n"
@@ -84,7 +85,11 @@ def _load_gold_inputs() -> tuple[pd.DataFrame, pd.DataFrame]:
             )
 
     log.info("Lendo Gold inputs", extra={"financeiro": str(financeiro_path)})
-    return pd.read_parquet(financeiro_path), pd.read_parquet(receita_path)
+    return (
+        pd.read_parquet(financeiro_path),
+        pd.read_parquet(receita_path),
+        pd.read_parquet(despesa_orgao_path),
+    )
 
 
 # ── builders de dimensões ──────────────────────────────────────────────────────
@@ -129,7 +134,7 @@ def build_dim_fonte_recurso(receita_df: pd.DataFrame) -> pd.DataFrame:
     nomes = sorted({_normalize_text(v) for v in receita_df["ds_fonte_recurso_norm"].dropna()})
     rows = [
         {
-            "fonte_id": str(uuid5(NAMESPACE_DNS, f"boituva:{n.lower()}")),
+            "fonte_id": uuid5(NAMESPACE_DNS, f"boituva:{n.lower()}"),
             "fonte_nome": n,
             "grupo": _infer_fonte_grupo(n),
         }
@@ -170,6 +175,20 @@ def build_fato_financeiro_mensal(financeiro_df: pd.DataFrame) -> pd.DataFrame:
         "tempo_id", "municipio_id_ibge",
         "receita_prevista", "receita_realizada",
         "despesa_empenhada", "despesa_liquidada", "despesa_paga",
+    ]]
+
+
+def build_fato_despesa_mensal_orgao(orgao_df: pd.DataFrame) -> pd.DataFrame:
+    fato = orgao_df.copy()
+    fato["tempo_id"] = fato["ano_mes_ref"]
+    fato["municipio_id_ibge"] = settings.municipio_ibge_code
+    return fato[[
+        "tempo_id",
+        "municipio_id_ibge",
+        "orgao_nome",
+        "despesa_empenhada",
+        "despesa_liquidada",
+        "despesa_paga",
     ]]
 
 
@@ -215,7 +234,7 @@ def run_upload_exec_cloud(dry_run: bool = False, **_) -> None:
     run_id = mm.start("upload_exec_cloud", "supabase", "gold_tce")
 
     try:
-        financeiro_df, receita_df = _load_gold_inputs()
+        financeiro_df, receita_df, despesa_orgao_df = _load_gold_inputs()
 
         # ── build ────────────────────────────────────────────────────────
         dim_municipio_df   = build_dim_municipio()
@@ -223,6 +242,7 @@ def run_upload_exec_cloud(dry_run: bool = False, **_) -> None:
         dim_secretaria_df  = build_dim_secretaria()
         dim_fonte_df       = build_dim_fonte_recurso(receita_df)
         fato_financeiro_df = build_fato_financeiro_mensal(financeiro_df)
+        fato_despesa_orgao_df = build_fato_despesa_mensal_orgao(despesa_orgao_df)
         fato_receita_df    = build_fato_receita_mensal_fonte(receita_df, dim_fonte_df)
         fato_ibge_df       = build_fato_ibge_indicador()
 
@@ -241,11 +261,22 @@ def run_upload_exec_cloud(dry_run: bool = False, **_) -> None:
         # Motivo: sem esse guard, um parquet vazio ou corrompido causaria
         # TRUNCATE seguido de carga vazia — frontend ficaria sem dados.
         validate_frames(frames)
+        validate_frames({
+            "analytics.fato_despesa_mensal_orgao": fato_despesa_orgao_df,
+        })
 
         # ── preview ───────────────────────────────────────────────────────
         log.info("=== PREVIEW DA CARGA EXECUTIVA ===")
         for name, df in frames.items():
             log.info("Frame ready", extra={"table": name, "rows": len(df), "cols": len(df.columns)})
+        log.info(
+            "Organization-level expense frame ready",
+            extra={
+                "table": "analytics.fato_despesa_mensal_orgao",
+                "rows": len(fato_despesa_orgao_df),
+                "orgs": sorted(fato_despesa_orgao_df["orgao_nome"].unique().tolist()),
+            },
+        )
 
         if dry_run:
             log.info("[DRY-RUN] Nenhum dado gravado no banco.")
@@ -258,6 +289,14 @@ def run_upload_exec_cloud(dry_run: bool = False, **_) -> None:
         #   - TRUNCATE na ordem TABLE_RESET_ORDER (filhos antes de pais)
         #   - upload sequencial por DataFrame
         truncate_and_load(frames=frames, truncate_order=TABLE_RESET_ORDER)
+
+        upsert(
+            fato_despesa_orgao_df,
+            "fato_despesa_mensal_orgao",
+            get_engine(),
+            conflict_columns=["tempo_id", "municipio_id_ibge", "orgao_nome"],
+            schema="analytics",
+        )
 
         mm.finish(
             run_id,

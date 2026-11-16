@@ -12,6 +12,7 @@ import OperacionalEleitorado from "./pages/OperacionalEleitorado.tsx";
 import OperacionalContratos from "./pages/OperacionalContratos.tsx";
 import OperacionalFiscal from "./pages/OperacionalFiscal.tsx";
 import IegmScorecard from "./pages/IegmScorecard.tsx";
+import RadarGestao from "./pages/RadarGestao.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/execucao" element={<Execucao />} />
+            <Route path="/radar-gestao" element={<RadarGestao />} />
             <Route path="/receita" element={<Navigate to="/execucao" replace />} />
             <Route path="/despesa" element={<Navigate to="/execucao" replace />} />
             <Route path="/ibge-municipio" element={<IbgeMunicipio />} />

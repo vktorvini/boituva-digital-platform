@@ -5,14 +5,14 @@
   "municipio": "boituva",
   "pipeline_version": "1.1.0",
   "schema_version": "2.0.0",
-  "data_execucao_utc": "2026-11-05T16:47:50+00:00",
+  "data_execucao_utc": "2026-11-09T15:53:19+00:00",
   "arquivo_saida": "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\gold\\tce\\financeiro\\gold_financeiro_anual.parquet",
-  "checksum_sha256": "2374e637795b25835b86d9954541c0c41e307bc4961ef817cf7218c81700e8f4",
+  "checksum_sha256": "84eac2cb4c05ab0f014bd2982e0d23d12de6279cc977c13d6a4c0364dd8560e9",
   "arquivos_entrada": [
     "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\silver\\tce\\receitas\\consolidated\\receitas_boituva_full.parquet",
     "C:\\Users\\Vktor\\Desktop\\Projetos\\boituva-digital-platform\\pipeline\\boituva-tce-pipeline\\data\\silver\\tce\\despesas\\consolidated\\despesas_boituva_full.parquet"
   ],
-  "registros_totais": 1,
+  "registros_totais": 13,
   "num_colunas": 12,
   "colunas": [
     "ano",

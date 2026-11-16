@@ -71,6 +71,73 @@ def classify_evento(evento_norm: str) -> str:
     return "despesa_outros_eventos"
 
 
+def build_gold_despesa_mensal_orgao(df_desp: pd.DataFrame) -> pd.DataFrame:
+    """Agrega os três estágios de despesa por período e órgão TCE-SP."""
+    data = df_desp.copy()
+    data["categoria_evento"] = data["evento_norm"].apply(classify_evento)
+    data["orgao_nome"] = data["orgao_norm"].replace(
+        {"C�MARA MUNICIPAL DE BOITUVA": "CÂMARA MUNICIPAL DE BOITUVA"}
+    )
+    grouped = (
+        data[data["categoria_evento"].isin(
+            ["despesa_empenhada", "despesa_liquidada", "despesa_paga"]
+        )]
+        .groupby(
+            ["ano", "mes_num", "ano_mes_ref", "orgao_nome", "categoria_evento"],
+            dropna=False,
+            as_index=False,
+        )["vl_despesa"]
+        .sum()
+        .pivot_table(
+            index=["ano", "mes_num", "ano_mes_ref", "orgao_nome"],
+            columns="categoria_evento",
+            values="vl_despesa",
+            aggfunc="sum",
+            fill_value=0.0,
+        )
+        .reset_index()
+    )
+    grouped.columns.name = None
+
+    stages = ["despesa_empenhada", "despesa_liquidada", "despesa_paga"]
+    for stage in stages:
+        if stage not in grouped:
+            grouped[stage] = 0.0
+    return grouped[
+        ["ano", "mes_num", "ano_mes_ref", "orgao_nome", *stages]
+    ].sort_values(["ano", "mes_num", "orgao_nome"]).reset_index(drop=True)
+
+
+def validate_orgao_reconciliation(
+    orgao_df: pd.DataFrame,
+    mensal_df: pd.DataFrame,
+) -> None:
+    """Abort the pipeline if org-level stage totals diverge from monthly GOLD."""
+    stages = ["despesa_empenhada", "despesa_liquidada", "despesa_paga"]
+    by_month = orgao_df.groupby(
+        ["ano", "mes_num"], as_index=False
+    )[stages].sum()
+    comparison = mensal_df[["ano", "mes_num", *stages]].merge(
+        by_month,
+        on=["ano", "mes_num"],
+        how="outer",
+        suffixes=("_mensal", "_orgao"),
+    ).fillna(0)
+    mismatches = {
+        stage: float(
+            (comparison[f"{stage}_mensal"] - comparison[f"{stage}_orgao"])
+            .abs()
+            .max()
+        )
+        for stage in stages
+    }
+    if any(difference > 0.01 for difference in mismatches.values()):
+        raise ValueError(
+            "Despesas agregadas por órgão não conciliam com o Gold mensal: "
+            f"{mismatches}"
+        )
+
+
 def _save(df: pd.DataFrame, parquet_name: str, meta_name: str, **meta_kwargs) -> str:
     """
     Helper: salva Parquet + meta.json de forma padronizada.
@@ -162,6 +229,8 @@ def _run(mm: MetaManager, run_id: str) -> None:
         .sum()
     )
 
+    gold_despesa_orgao = build_gold_despesa_mensal_orgao(df_desp)
+
     gold_despesa_evento = (
         despesa_evento_base
         .rename(columns={"vl_despesa": "vl_despesa_total"})
@@ -214,6 +283,20 @@ def _run(mm: MetaManager, run_id: str) -> None:
         receita_mensal, despesa_pivot,
         on=["ano", "mes_num", "ano_mes_ref"],
         how="outer",
+    )
+    validate_orgao_reconciliation(gold_despesa_orgao, gold_financeiro_mensal)
+
+    _save(
+        gold_despesa_orgao,
+        "gold_despesa_mensal_orgao.parquet",
+        "gold_despesa_mensal_orgao__meta.json",
+        dataset="gold_despesa_mensal_orgao",
+        arquivos_entrada=[str(despesas_path)],
+        observacoes={
+            "granularidade": "ano, mês e órgão identificado nos registros TCE-SP",
+            "orgaos": sorted(gold_despesa_orgao["orgao_nome"].unique().tolist()),
+            "nota": "Órgão não representa decomposição de despesa por secretaria.",
+        },
     )
 
     # Preenche NaN em colunas numéricas
