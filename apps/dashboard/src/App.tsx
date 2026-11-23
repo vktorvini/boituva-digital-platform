@@ -1,4 +1,4 @@
-﻿import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,6 +13,7 @@ import OperacionalContratos from "./pages/OperacionalContratos.tsx";
 import OperacionalFiscal from "./pages/OperacionalFiscal.tsx";
 import IegmScorecard from "./pages/IegmScorecard.tsx";
 import RadarGestao from "./pages/RadarGestao.tsx";
+import GeoInteligencia3D from "./pages/GeoInteligencia3D.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/execucao" element={<Execucao />} />
             <Route path="/radar-gestao" element={<RadarGestao />} />
+            <Route path="/geointeligencia" element={<GeoInteligencia3D />} />
             <Route path="/receita" element={<Navigate to="/execucao" replace />} />
             <Route path="/despesa" element={<Navigate to="/execucao" replace />} />
             <Route path="/ibge-municipio" element={<IbgeMunicipio />} />
